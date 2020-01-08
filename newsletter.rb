@@ -1,3 +1,6 @@
+require 'pry'
+
+
 #########################
 # Data for the newsletter
 #########################
@@ -28,31 +31,49 @@ ARTICLES = [
 def calculate_recipients
   # Using the SUBSCRIBERS and UNSUBSCRIBED arrays,
   # write a method that will return an array of only the subscribers who haven't unsubscribed
+  SUBSCRIBERS.select do |email|
+    UNSUBSCRIBED.include?(email) == false
+  end
 end
 
-def first_n_articles(number_of_articles
+def first_n_articles(number_of_articles)
   ARTICLES.first(number_of_articles)
 end
 
-def print_recipients
+def print_recipients(recipients)
   # Write a method that uses the output of calculate_recipients
   # and returns a list of emails separated by commas
   # Ex) "abc@email.com, def@email.com, ghi@email.com"
+  recipients.join(', ')
 end
 
 def print_one_article(article)
   # Write a method that will take an article hash
   # and print the title, author and text as a formatted string
   # See the README/sample output for examples
+  # TITLE
+  # by: AUTHOR
+  # ARTICLE
+
+
+  puts article[:title]
+  print "by: "
+  puts article[:author]
+  puts article[:text]
+
 end
 
 def print_many_articles(articles)
   # Write a method that will take in an array of article hashes
   # and format each one using the print_one_article method
+  articles.each do |single_article|
+    print_one_article(single_article)
+    puts ''
+  end
 end
 
 def format_campus_location(campus)
-  "Flatiron #{campus["name"]}"
+  "Flatiron #{campus[:name]}"
 end
 
 def format_subject
@@ -70,15 +91,14 @@ def print_newsletter(number)
   format_subject
 
   print "RECIPIENTS: "
-  print_recipients
+  print_recipients(calculate_recipients)
 
   puts "\nBODY:"
   format_subject
-  articles = first_n_articles(number)
+  articles = first_n_articles(number.to_i)
   print_many_articles(articles)
   puts format_footer(CAMPUS)
 
-  end
 end
 
 def run
@@ -86,7 +106,7 @@ def run
   # but we can change that number here
   print_newsletter("3")
 end
-
+# binding.pry
 # When we run "ruby newsletter.rb" in the command line,
 # the 'run' method will be called because we're calling it below.
 run
