@@ -1,6 +1,3 @@
-require 'pry'
-
-
 #########################
 # Data for the newsletter
 #########################
@@ -51,10 +48,6 @@ def print_one_article(article)
   # Write a method that will take an article hash
   # and print the title, author and text as a formatted string
   # See the README/sample output for examples
-  # TITLE
-  # by: AUTHOR
-  # ARTICLE
-
 
   puts article[:title]
   print "by: "
@@ -106,7 +99,6 @@ def run
   # but we can change that number here
   print_newsletter("3")
 end
-# binding.pry
 # When we run "ruby newsletter.rb" in the command line,
 # the 'run' method will be called because we're calling it below.
 run
