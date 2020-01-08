@@ -1,6 +1,7 @@
 #########################
 # Data for the newsletter
 #########################
+require 'pry'
 
 CAMPUS = {
   "name": "DC",
@@ -26,20 +27,29 @@ ARTICLES = [
 #########################
 
 def calculate_recipients
+  new_arr = []
+
+  SUBSCRIBERS.each do |email|
+    if UNSUBSCRIBED[0] != email && UNSUBSCRIBED[1] != email
+      new_arr << email
+    end
+  end
+  return new_arr
   # Using the SUBSCRIBERS and UNSUBSCRIBED arrays,
   # write a method that will return an array of only the subscribers who haven't unsubscribed
 end
 
-def first_n_articles(number_of_articles
-  ARTICLES.first(number_of_articles)
+def first_n_articles(number_of_articles)
+  ARTICLES.first(number_of_articles.clamp(1,7))
 end
 
 def print_recipients
+  calculate_recipients.join(", ")
   # Write a method that uses the output of calculate_recipients
   # and returns a list of emails separated by commas
   # Ex) "abc@email.com, def@email.com, ghi@email.com"
 end
-
+binding.pry
 def print_one_article(article)
   # Write a method that will take an article hash
   # and print the title, author and text as a formatted string
@@ -77,8 +87,6 @@ def print_newsletter(number)
   articles = first_n_articles(number)
   print_many_articles(articles)
   puts format_footer(CAMPUS)
-
-  end
 end
 
 def run
