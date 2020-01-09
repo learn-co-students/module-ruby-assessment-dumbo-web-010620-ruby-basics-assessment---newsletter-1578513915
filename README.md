@@ -49,7 +49,7 @@ SUBJECT: Flatiron  Newsletter - Nov 20, 2019
 If you check `sample_output.txt`, it shows that the right output should be
 
 ```txt
-SUBJECT: Flatiron DC Newsletter - Nov 20, 2019
+SUBJECT: Flatiron DC Newsletter - Nov 20, 2019 
 ```
 
 `format_campus_location` should return `"Flatiron DC"`. Figure out why it is not working correctly, and fix it. You'll know it's working when the subject line in the output shows correctly.
