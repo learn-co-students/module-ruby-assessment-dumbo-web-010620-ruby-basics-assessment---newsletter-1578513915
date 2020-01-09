@@ -1,6 +1,7 @@
 #########################
 # Data for the newsletter
 #########################
+# require 'pry'
 
 CAMPUS = {
   "name": "DC",
@@ -10,7 +11,7 @@ DATE = "Nov 20, 2019"
 
 SUBSCRIBERS = ["rhona@grimes.info", "cedricschmidt@robel.io", "edmond@ko.org", "bryant@cummingsfisher.biz", "alverta@bernhard.name"]
 UNSUBSCRIBED = ["cedricschmidt@robel.io", "alverta@bernhard.name"]
-
+subscription_array = SUBSCRIBERS + UNSUBSCRIBED
 ARTICLES = [
   {"author": "Destiny Blanda Bruen II", "title": "Mining", "text": "The orthogonal features, when combined, can explode into complexity."},
   {"author": "Robin Flatley Hilpert", "title": "Retail", "text": "In our daily lives as programmers, we process text strings a lot. So I tried to work hard on text processing, namely the string class and regular expressions. Regular expressions are built into the language and are very tuned up for use."},
@@ -25,22 +26,32 @@ ARTICLES = [
 # Methods to generate the newsletter
 #########################
 
-def calculate_recipients
+def calculate_recipients(array)
+
+end      
+  # array.select.uniq do |subscribers|
+  #   subbed_array << array
+# end
+    
+    # new_array
   # Using the SUBSCRIBERS and UNSUBSCRIBED arrays,
   # write a method that will return an array of only the subscribers who haven't unsubscribed
-end
 
-def first_n_articles(number_of_articles
+
+def first_n_articles(number_of_articles)
   ARTICLES.first(number_of_articles)
 end
 
-def print_recipients
+def print_recipients(array)
+    array.join(", ")
   # Write a method that uses the output of calculate_recipients
   # and returns a list of emails separated by commas
   # Ex) "abc@email.com, def@email.com, ghi@email.com"
 end
 
 def print_one_article(article)
+    article.to_s
+    
   # Write a method that will take an article hash
   # and print the title, author and text as a formatted string
   # See the README/sample output for examples
@@ -52,7 +63,7 @@ def print_many_articles(articles)
 end
 
 def format_campus_location(campus)
-  "Flatiron #{campus["name"]}"
+  "Flatiron #{campus[:name]}"
 end
 
 def format_subject
@@ -78,7 +89,7 @@ def print_newsletter(number)
   print_many_articles(articles)
   puts format_footer(CAMPUS)
 
-  end
+
 end
 
 def run
@@ -86,7 +97,9 @@ def run
   # but we can change that number here
   print_newsletter("3")
 end
-
+# binding.pry
 # When we run "ruby newsletter.rb" in the command line,
 # the 'run' method will be called because we're calling it below.
 run
+
+
