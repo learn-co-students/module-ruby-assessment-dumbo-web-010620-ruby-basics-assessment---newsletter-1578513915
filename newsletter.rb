@@ -28,31 +28,42 @@ ARTICLES = [
 def calculate_recipients
   # Using the SUBSCRIBERS and UNSUBSCRIBED arrays,
   # write a method that will return an array of only the subscribers who haven't unsubscribed
+  newarr = SUBSCRIBERS - UNSUBSCRIBED
+  newarr
 end
 
-def first_n_articles(number_of_articles
-  ARTICLES.first(number_of_articles)
+def first_n_articles(number_of_articles)
+  ARTICLES.first(number_of_articles.to_i)
 end
 
 def print_recipients
   # Write a method that uses the output of calculate_recipients
   # and returns a list of emails separated by commas
   # Ex) "abc@email.com, def@email.com, ghi@email.com"
+  calculate_recipients.join(", ")
 end
 
 def print_one_article(article)
   # Write a method that will take an article hash
   # and print the title, author and text as a formatted string
   # See the README/sample output for examples
+  puts "#{article[:title]}\nby: #{article[:author]}\n#{article[:text]}"
+  puts " "
+
 end
 
 def print_many_articles(articles)
   # Write a method that will take in an array of article hashes
   # and format each one using the print_one_article method
+
+  articles.each do |article|
+    print_one_article(article)
+  end
+ 
 end
 
 def format_campus_location(campus)
-  "Flatiron #{campus["name"]}"
+  "Flatiron DC #{campus["name"]}"
 end
 
 def format_subject
@@ -78,7 +89,7 @@ def print_newsletter(number)
   print_many_articles(articles)
   puts format_footer(CAMPUS)
 
-  end
+  
 end
 
 def run
