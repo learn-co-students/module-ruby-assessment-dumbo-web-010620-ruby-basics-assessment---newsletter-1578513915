@@ -1,7 +1,7 @@
 #########################
 # Data for the newsletter
 #########################
-
+require 'pry'
 CAMPUS = {
   "name": "DC",
   "address": "1440 G St NW, Washington, DC 20005",
@@ -25,16 +25,17 @@ ARTICLES = [
 # Methods to generate the newsletter
 #########################
 
-def calculate_recipients
+def calculate_recipients  
   # Using the SUBSCRIBERS and UNSUBSCRIBED arrays,
   # write a method that will return an array of only the subscribers who haven't unsubscribed
 end
-
+ 
 def first_n_articles(number_of_articles
   ARTICLES.first(number_of_articles)
 end
 
-def print_recipients
+def print_recipients(output)
+  
   # Write a method that uses the output of calculate_recipients
   # and returns a list of emails separated by commas
   # Ex) "abc@email.com, def@email.com, ghi@email.com"
