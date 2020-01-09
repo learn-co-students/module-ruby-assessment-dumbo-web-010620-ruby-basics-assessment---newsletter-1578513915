@@ -3,8 +3,8 @@
 #########################
 
 CAMPUS = {
-  "name": "DC",
-  "address": "1440 G St NW, Washington, DC 20005",
+  name: "DC",
+  address: "1440 G St NW, Washington, DC 20005",
 }
 DATE = "Nov 20, 2019"
 
@@ -26,21 +26,24 @@ ARTICLES = [
 #########################
 
 def calculate_recipients
+ SUBSCRIBERS - UNSUBSCRIBED
+end
   # Using the SUBSCRIBERS and UNSUBSCRIBED arrays,
   # write a method that will return an array of only the subscribers who haven't unsubscribed
-end
 
-def first_n_articles(number_of_articles
-  ARTICLES.first(number_of_articles)
+def first_n_articles(number_of_articles)
+  ARTICLES.first[number_of_articles]
 end
 
 def print_recipients
+  p calculate_recipients 
   # Write a method that uses the output of calculate_recipients
   # and returns a list of emails separated by commas
   # Ex) "abc@email.com, def@email.com, ghi@email.com"
 end
 
 def print_one_article(article)
+  article[:]
   # Write a method that will take an article hash
   # and print the title, author and text as a formatted string
   # See the README/sample output for examples
@@ -52,8 +55,9 @@ def print_many_articles(articles)
 end
 
 def format_campus_location(campus)
-  "Flatiron #{campus["name"]}"
+  "Flatiron #{campus[:name]}"  
 end
+
 
 def format_subject
   puts "#{format_campus_location(CAMPUS)} Newsletter - #{DATE}\n\n"
@@ -79,7 +83,7 @@ def print_newsletter(number)
   puts format_footer(CAMPUS)
 
   end
-end
+
 
 def run
   # We want our program to print three articles by default,
