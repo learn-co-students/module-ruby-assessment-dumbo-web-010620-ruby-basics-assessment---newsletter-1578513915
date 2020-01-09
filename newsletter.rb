@@ -35,7 +35,7 @@ end
 
 
 def first_n_articles(number_of_articles)
-  ARTICLES.first(number_of_articles.length)
+  ARTICLES.first(number_of_articles)
 end
 
 def print_recipients
