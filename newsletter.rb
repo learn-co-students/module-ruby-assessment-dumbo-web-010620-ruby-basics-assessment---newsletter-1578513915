@@ -49,7 +49,7 @@ end
 def print_one_article(article)
   binding.pry
   string = ARTICLES.map do |item|
-    item = "#{item['title'].capitalize}: #{item['value']}"
+    item = "#{item['title'].capitalize}: #{item['text']}"
 end.join(", ")
 
 puts string
